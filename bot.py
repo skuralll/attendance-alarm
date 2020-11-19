@@ -9,12 +9,12 @@ import os
 import yaml
 
 # リソースの読み込み
-AUDIO_PATH = os.getcwd() + os.path.sep + "resource" + os.path.sep + "audio.wav"
+AUDIO_PATH = os.getcwd() + os.path.sep + "resources" + os.path.sep + "audio.wav"
 
 # クライアントオブジェクトを生成
 client = discord.Client()
 # 設定ファイルの読み込み
-path = os.getcwd() + os.path.sep + "resource" + os.path.sep + "config.yml"
+path = os.getcwd() + os.path.sep + "resources" + os.path.sep + "config.yml"
 with open(path, 'r', encoding="utf-8") as file:
     ymlobj = yaml.safe_load(file)
     TOKEN = ymlobj['bot-token']

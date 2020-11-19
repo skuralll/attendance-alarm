@@ -24,7 +24,7 @@
     ```
 
 ## 動かし方
-1. まず、`resource/config.yml` を編集します。  
+1. まず、`resource/config.example.yml` を `resources/config.yml` にコピーし、これを編集します。  
    Botのトークンや使用するチャンネルのID等を記述してください。
     ```yml
     # Bot Setting
@@ -46,8 +46,8 @@
 * [bot.py](https://github.com/yudete/attendance-alarm/blob/main/bot.py)  
 ボット本体のソースコード。
 * [attendance-alarm.service](https://github.com/yudete/attendance-alarm/blob/main/attendance-alarm.service)  
-Systemd 向けのユニットファイル。
-* [resource](https://github.com/yudete/attendance-alarm/blob/main/resource)  
+Systemd 向けのユニットファイル。Linux 等でデーモン化する際に使用します。
+* [resources](https://github.com/yudete/attendance-alarm/blob/main/resource)  
 設定ファイルや音声ファイルを入れるディレクトリ
     * [audio.wav](https://github.com/yudete/attendance-alarm/blob/main/resource/audio.wav)  
     アラームに使われる音声ファイル。
@@ -56,5 +56,5 @@ Systemd 向けのユニットファイル。
     * [config.yml](https://github.com/yudete/attendance-alarm/blob/main/resource/config.yml)  
     トークンやチャンネルIDを設定するためのファイル
 
-## License
-このプロジェクトは画像や音声ファイルなどのアセットファイルなどを除き、[MIT License](https://opensource.org/licenses/MIT)に従ってライセンスされています。
+## ライセンス
+このプロジェクトは画像や音声などのアセットファイルなどを除き、[MIT License](https://opensource.org/licenses/MIT)に従ってライセンスされています。

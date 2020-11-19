@@ -3,7 +3,6 @@ Description=attendance-alarm
 After=network-online.target
 
 [Service]
-Environment=TOKEN=GOES_HERE
 User=attendance-alarm
 Group=attendance-alarm
 WorkingDirectory=/path/to/attendance-alarm
