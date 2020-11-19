@@ -1,0 +1,12 @@
+# Bot Settings
+bot-token: Please-Replace-Here-To-Bot-Token #botのトークンをここに書いてください
+
+# Server Settings
+server-id: 0 #Server-ID
+server-channel-text: 0 #Alarm-Channel(Text)-ID
+server-channel-voice: 0 #Alarm-Channel(Voice)-ID
+
+# Dev Settings
+dev-debug-mode: false #debug-mode(true|false)
+dev-channel-text: 0 #Dev-Alarm-Channel(Text)-ID
+dev-channel-voice: 0 #Dev-Alarm-Channel(Text)-ID

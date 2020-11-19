@@ -1,4 +1,4 @@
 .idea
 .vscode
 venv/
-resources/config.example.yml
+resources/config.yml

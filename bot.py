@@ -24,14 +24,16 @@ with open(path, 'r', encoding="utf-8") as file:
     DEV_DEBUG_MODE = ymlobj['dev-debug-mode']
     DEV_CHANNEL_TEXT = ymlobj['dev-channel-text']
     DEV_CHANNEL_VOICE = ymlobj['dev-channel-text']  # not implemented
+    TEMPLATE = ymlobj['template'] # 通知メッセージのテンプレート
+
 if DEV_DEBUG_MODE:
-    print(">DEBU-IFNO▼")
-    print(">TOKEN: " + TOKEN)
-    print(">GUILD_ID: " + str(GUILD_ID))
-    print(">CHANNEL_TEXT: " + str(CHANNEL_TEXT))
-    print(">CHANNEL_VOICE: " + str(CHANNEL_VOICE))
-    print(">DEV_CHANNEL_TEXT: " + str(DEV_CHANNEL_TEXT))
-    print(">DEV_CHANNEL_VOICE: " + str(DEV_CHANNEL_VOICE))
+    print("> ボットの設定 ▼")
+    print("> TOKEN: " + TOKEN)
+    print("> GUILD_ID: " + str(GUILD_ID))
+    print("> CHANNEL_TEXT: " + str(CHANNEL_TEXT))
+    print("> CHANNEL_VOICE: " + str(CHANNEL_VOICE))
+    print("> DEV_CHANNEL_TEXT: " + str(DEV_CHANNEL_TEXT))
+    print("> DEV_CHANNEL_VOICE: " + str(DEV_CHANNEL_VOICE))
 
 voice = None
 player = None
@@ -40,8 +42,8 @@ player = None
 # 起動通知
 @client.event
 async def on_ready():
-    print("ボットを起動しました。discord.py バージョン", discord.__version__)
-    await client.change_presence(activity=discord.Game(name="起きろ起きろ起きろ起きろ起きろ起きろ起きろ起きろ起きろ"))
+    print("ボットを起動しました。discord.py バージョン", discord.__version__) # 起動確認メッセージ
+    await client.change_presence(activity=discord.Game(name="起きろ起きろ起きろ起きろ起きろ起きろ起きろ起きろ起きろ")) # 脅し
 
 
 @client.event
@@ -99,7 +101,7 @@ async def on_message(message):
     if message.content == '!disconnect':
         voice.disconnect()
 
-    if message.content == '!deafen on':
+    if message.content == '!deafen on': # テスト用: 全員をスピーカーミュートする。
         # ボイスチャンネルに参加
         if voice == None:  # もし参加していなかったら？
             voice = await client.get_channel(CHANNEL_VOICE).connect(reconnect=True)
@@ -109,7 +111,7 @@ async def on_message(message):
         for member in bot_vc.members:
             await member.edit(deafen=True)
 
-    if message.content == '!deafen off':
+    if message.content == '!deafen off': # テスト用: 全員のスピーカーミュートを解除する。
         # ボイスチャンネルに参加
         if voice == None:  # もし参加していなかったら？
             voice = await client.get_channel(CHANNEL_VOICE).connect(reconnect=True)
@@ -119,6 +121,8 @@ async def on_message(message):
         for member in bot_vc.members:
             await member.edit(deafen=False)
 
+    if message.content == '!template': # テスト用: テンプレートを表示する。
+        await client.get_channel(DEV_CHANNEL_TEXT).send(TEMPLATE)
 
 @tasks.loop(seconds=60)
 async def loop():
