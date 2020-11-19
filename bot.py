@@ -97,9 +97,11 @@ async def on_message(message):
 
     if message.content == '!stop':
         voice.stop()
+        await client.get_channel(DEV_CHANNEL_TEXT).send("再生を停止しました。")
 
     if message.content == '!disconnect':
         voice.disconnect()
+        await client.get_channel(DEV_CHANNEL_TEXT).send("ボイスチャンネルから切断しました。")
 
     if message.content == '!deafen on': # テスト用: 全員をスピーカーミュートする。
         # ボイスチャンネルに参加

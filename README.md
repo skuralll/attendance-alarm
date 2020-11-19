@@ -27,16 +27,25 @@
 1. まず、`resource/config.example.yml` を `resources/config.yml` にコピーし、これを編集します。  
    Botのトークンや使用するチャンネルのID等を記述してください。
     ```yml
-    # Bot Setting
+    # Bot Settings
     bot-token: Please-Replace-Here-To-Bot-Token #botのトークンをここに書いてください
-    # Server Setting
+
+    # Server Settings
     server-id: 0 #Server-ID
     server-channel-text: 0 #Alarm-Channel(Text)-ID
     server-channel-voice: 0 #Alarm-Channel(Voice)-ID
-    #Dev Setting
+
+    # Dev Settings
     dev-debug-mode: false #debug-mode(true|false)
     dev-channel-text: 0 #Dev-Alarm-Channel(Text)-ID
     dev-channel-voice: 0 #Dev-Alarm-Channel(Text)-ID
+
+    # Template
+    # {role}: 特定の時限のロールID
+    # {weekday}: 曜日
+    # {time}: 時限
+
+    template: "<@&{role}> {weekday}曜日 {time}限 の開始時刻です。出席確認をしてください。"
     ```
 1. 上記の「必要なもの」に従って、必須パッケージをインストールします。  
 1. `python bot.py` 等で実行します。

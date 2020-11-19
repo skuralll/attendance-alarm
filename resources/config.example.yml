@@ -10,3 +10,10 @@ server-channel-voice: 0 #Alarm-Channel(Voice)-ID
 dev-debug-mode: false #debug-mode(true|false)
 dev-channel-text: 0 #Dev-Alarm-Channel(Text)-ID
 dev-channel-voice: 0 #Dev-Alarm-Channel(Text)-ID
+
+# Template
+# {role}: 特定の時限のロールID
+# {weekday}: 曜日
+# {time}: 時限
+
+template: "<@&{role}> {weekday}曜日 {time}限 の開始時刻です。出席確認をしてください。"
