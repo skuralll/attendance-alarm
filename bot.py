@@ -31,11 +31,6 @@ with open(path, 'r', encoding="utf-8") as file:
 
 # 時間割定義(仮置) # TODO:時間割設定ファイルを作成、そこから読み込むようにする
 timetable = [
-    [    # 日曜日
-        {'time': '06:19', 'role': 0},
-        {'time': '06:20', 'role': 0},
-        {'time': '06:21', 'role': 0},
-    ],
     [    # 月曜日
         {'time': '09:00', 'role': 0},
         {'time': '10:40', 'role': 0},
@@ -71,10 +66,16 @@ timetable = [
         {'time': '14:40', 'role': 0},
         {'time': '16:20', 'role': 0}
     ],
-    []   # 土曜日
+    [],  # 土曜日
+    [    # 日曜日
+        {'time': '07:11', 'role': 0},
+        {'time': '07:12', 'role': 0},
+        {'time': '07:13', 'role': 0},
+    ]
 ]
+DAY_NAMES = ["月", "火", "水", "木", "金", "土", "日"]
 # デバッグ用曜日
-DEV_DAY = 0
+DEV_DAY = 6
 
 # DEV_DEBUG_MODE が有効だった場合、ボットの起動時に config を表示する
 if DEV_DEBUG_MODE:
@@ -106,15 +107,16 @@ async def on_message(message):
 
 
 # タスク
-@tasks.loop(seconds=60)
+@tasks.loop(seconds=1)
 async def loop():
-    global voice, player, timetable  # グローバル変数であることを明示
-    weekday = DEV_DAY if DEV_DEBUG_MODE else datetime.now().weekday()  # デバッグモードなら曜日はDEV_DAYに設定
-    now = datetime.now().strftime('%H:%M')
-    for lesson in range(len(timetable[weekday])):  # その日のコマ数分ループさせる
-        if timetable[weekday][lesson]['time'] == now:  # lessonコマ目の開始時刻が現在の時刻と一致していたら
-            # 処理
-            break
+    if client.is_ready():
+        weekday = DEV_DAY if DEV_DEBUG_MODE else datetime.now().weekday()  # デバッグモードなら曜日はDEV_DAYに設定
+        now = datetime.now().strftime('%H:%M')
+        for lesson in range(len(timetable[weekday])):  # その日のコマ数分ループさせる
+            if timetable[weekday][lesson]['time'] == now:  # lessonコマ目の開始時刻が現在の時刻と一致していたら
+                global voice, player  # グローバル変数であることを明示
+                await client.get_channel(CHANNEL_TEXT).send(TEMPLATE.format(role=timetable[weekday][lesson]['role'], weekday=DAY_NAMES[weekday], time=(lesson+1)))  # 出席通知を送信
+                break
 
 
 # ループ開始
