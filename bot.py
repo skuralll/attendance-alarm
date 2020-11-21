@@ -111,10 +111,10 @@ async def loop():
     global voice, player, timetable  # グローバル変数であることを明示
     weekday = DEV_DAY if DEV_DEBUG_MODE else datetime.now().weekday()  # デバッグモードなら曜日はDEV_DAYに設定
     now = datetime.now().strftime('%H:%M')
-    for lesson in range(len(timetable[weekday])):
-        if timetable[weekday][lesson]['time'] == now:
+    for lesson in range(len(timetable[weekday])):  # その日のコマ数分ループさせる
+        if timetable[weekday][lesson]['time'] == now:  # lessonコマ目の開始時刻が現在の時刻と一致していたら
             # 処理
-
+            break
 
 
 # ループ開始
