@@ -83,7 +83,6 @@
     ```
 1. 上記の「必要なもの」に従って、必須パッケージをインストールします。  
 1. `python bot.py` 等で実行します。
-    正常な動作にはソースコード中のチャンネルIDやロールIDが稼働させるサーバー内のものと一致している必要があるため、多くの改変が必要になる場合があります。
 
 ## このリポジトリの構造
 * [bot.py](https://github.com/yudete/attendance-alarm/blob/main/bot.py)  
@@ -95,7 +94,7 @@ Systemd 向けのユニットファイル。Linux 等でデーモン化する際
     * [audio.wav](https://github.com/yudete/attendance-alarm/blob/main/resource/audio.wav)  
     アラームに使われる音声ファイル。
     * [logo.png](https://github.com/yudete/attendance-alarm/blob/main/resource/logo.png)  
-    ファイル名を見なさい
+    ボット アカウントに用いられているアイコン
     * [config.yml](https://github.com/yudete/attendance-alarm/blob/main/resource/config.yml)  
     トークンやチャンネルIDを設定するためのファイル
 

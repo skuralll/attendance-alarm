@@ -619,7 +619,6 @@ async def loop():
                 player = voice.play(discord.FFmpegPCMAudio(AUDIO_PATH))
             else:
                 print('Already playing on VC.')
-            await client.get_channel(CHANNEL_TEXT).send('<@&> 曜日 5限 の開始時刻です。出席確認をしてください。')
             await client.get_channel(CHANNEL_TEXT).send(TEMPLATE.format(role=MONDAY_5, weekday="月", time="5"))
         # 火曜日
         if weekday == 1:
@@ -640,7 +639,6 @@ async def loop():
                 player = voice.play(discord.FFmpegPCMAudio(AUDIO_PATH))
             else:
                 print('Already playing on VC.')
-            await client.get_channel(CHANNEL_TEXT).send('<@&> 曜日 5限 の開始時刻です。出席確認をしてください。')
             await client.get_channel(CHANNEL_TEXT).send(TEMPLATE.format(role=TUESDAY_5, weekday="火", time="5"))
         # 水曜日
         if weekday == 2:
@@ -661,7 +659,6 @@ async def loop():
                 player = voice.play(discord.FFmpegPCMAudio(AUDIO_PATH))
             else:
                 print('Already playing on VC.')
-            await client.get_channel(CHANNEL_TEXT).send('<@&> 曜日 5限 の開始時刻です。出席確認をしてください。')
             await client.get_channel(CHANNEL_TEXT).send(TEMPLATE.format(role=WEDNESDAY_5, weekday="水", time="5"))
         # 木曜日
         if weekday == 3:
@@ -682,7 +679,6 @@ async def loop():
                 player = voice.play(discord.FFmpegPCMAudio(AUDIO_PATH))
             else:
                 print('Already playing on VC.')
-            await client.get_channel(CHANNEL_TEXT).send('<@&> 曜日 5限 の開始時刻です。出席確認をしてください。')
             await client.get_channel(CHANNEL_TEXT).send(TEMPLATE.format(role=THURSDAY_5, weekday="木", time="5"))
         # 金曜日
         if weekday == 4:
@@ -703,7 +699,6 @@ async def loop():
                 player = voice.play(discord.FFmpegPCMAudio(AUDIO_PATH))
             else:
                 print('Already playing on VC.')
-            await client.get_channel(CHANNEL_TEXT).send('<@&> 曜日 5限 の開始時刻です。出席確認をしてください。')
             await client.get_channel(CHANNEL_TEXT).send(TEMPLATE.format(role=FRIDAY_5, weekday="金", time="5"))
 
 
